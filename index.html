@@ -12,6 +12,25 @@ developer, HTML">
 </head>
 <body>
    <header>
+<canvas id="logo" width="120" height="120">Beka Solomon logo</canvas>
+ <script>
+    const canvas = document.getElementById('logo');
+const ctx = canvas.getContext('2d');
+
+ctx.fillStyle = "#cc0000";
+ctx.fillRect(0, 0, 120, 120);
+
+ctx.beginPath();
+ctx.arc(60, 60, 45, 0, 2 * Math.PI);
+ctx.fillStyle = "white";
+ctx.fill();
+
+ctx.fillStyle = "#cc0000";
+ctx.font = "bold 36px Arial";
+ctx.textAlign = "center";
+ctx.textBaseline = "middle";
+ctx.fillText("BS", 60, 62);
+</script>
 <h1>Beka Solomon</h1>
 <img src="image/Profie.png" alt="Portrait of Beka Solomon smiling"
 title="Beka Solomon" width="200" height="200">
@@ -35,13 +54,16 @@ onclick="document.getElementById('hireDialog').close()">Close</button>
 <a href="#contact">Contact</a> |
 <a href="projects.html">All Projects</a>
 </nav>
+
 </header>
     <hr>
     <main>
     <section id="about"><h2>About Me</h2>
 <p>I am a twenty-year 3<sup>rd</sup> year Software Engineering student at AASTU. <mark>I plan on specializing in Data Science and AI</mark></p>
-<p>Languages I have used: <b>Python</b>, <b>C++</b>,<i> Rust</i> and JavaScript.</p>
+<p>Languages I have used: <b>Python</b>, <b>C++</b>,<i> Rust</i> and JavaScript. now i'm learning <abbr title="HyperText Markup Language">HTML</abbr></p>
 <p>Fun fact: I drink 2 litres of H<sub>2</sub>O while coding every day.</p>
+<p>My favourite tag is &lt;main&gt;, because it tells the browser
+where the important content is &amp; helps screen readers.</p>
 <hr>
 </section>
 <aside>
@@ -99,6 +121,56 @@ onclick="document.getElementById('hireDialog').close()">Close</button>
 <dt>Git and GitHub</dt>
 <dd>Version control and change management.</dd>
 </dl>
+<canvas id="skillsChart" width="300" height="150">Your browser does not support canvas.</canvas>
+
+  <script>
+
+        const logoCanvas = document.getElementById('logo');
+        const logoCtx = logoCanvas.getContext('2d');
+
+        logoCtx.fillStyle = "#cc0000"; 
+        logoCtx.fillRect(0, 0, 120, 120);
+
+        logoCtx.beginPath();
+        logoCtx.arc(60, 60, 45, 0, 2 * Math.PI);
+        logoCtx.fillStyle = "white";
+        logoCtx.fill();
+
+        logoCtx.fillStyle = "#cc0000"; 
+        logoCtx.font = "bold 36px Arial";
+        logoCtx.textAlign = "center";
+        logoCtx.textBaseline = "middle";
+        logoCtx.fillText("BS", 60, 62);
+
+        const chartCanvas = document.getElementById('skillsChart');
+        const chartCtx = chartCanvas.getContext('2d');
+
+        const skills = [
+            { name: "HTML",       value: 90, x: 20 },
+            { name: "Python",     value: 85, x: 110 },
+            { name: "JavaScript", value: 25, x: 200 }
+        ];
+
+        const maxHeight = 120; 
+        const baselineY = 130; 
+        const barWidth = 50;
+        const barColor = "#2160A8"; 
+
+        skills.forEach(skill => {
+            const barHeight = (skill.value / 100) * maxHeight;
+            const yPos = baselineY - barHeight;
+
+            chartCtx.fillStyle = barColor;
+            chartCtx.fillRect(skill.x, yPos, barWidth, barHeight);
+
+            chartCtx.fillStyle = "black";
+            chartCtx.font = "12px Arial";
+            chartCtx.textAlign = "center";
+            chartCtx.textBaseline = "top"; 
+            
+            chartCtx.fillText(skill.name, skill.x + (barWidth / 2), baselineY + 5);
+        });
+    </script>
 </section>
 <section id="projects">
 <h2 id="projects">Projects</h2>
@@ -127,8 +199,9 @@ print("Hello", i)
 <p><a href="projects.html">See all my projects →</a></p>
 </section>
 <hr>
-<section id="education">Education</h2>
-<h3>Currently studying Software Engineering at Addis Ababa Science and Technology University</h3>
+<h2><section id="education">Education</h2>
+<p>Addis Ababa Science and Technology University <abbr title="Addis Ababa Science and Technology University">AASTU</abbr>,
+<time datetime="2026-11">November 2026</time> – present</p>
 <p>
 <label for="degree">Degree progress:</label>
 <progress id="degree" value="40" max="100">40%</progress> 40%
@@ -195,7 +268,7 @@ print("Hello", i)
 <section id="contact"><h2>Contact</h2>
 <p>Address:<br>Addis Ababa,<br>Ethiopia</p>
 <p>Email: <a href="mailto:lalike04@gmail.com">lalike04@gmail.com</a></p>
-<p>Phone: <a href="tel:+251938791580">+251 938791580</a></p>
+<p>Phone: <a href="tel:+251911223344">+251&nbsp;938&nbsp;791&nbsp;580</a></p>
 <p>GitHub: <a href="https://github.com/lalike04-dev">github.com/lalike04-dev</a></p>
 <p>LinkedIn: <a
 href="https://www.linkedin.com/in/Beka Solomon">linkedin.com/in/Beka Solomon</a></p>
@@ -286,7 +359,8 @@ min="1000" and step="500".>
 
 </main>
 <footer>
-<p>Copyright 2026 Beka Solomon. All rights reserved.</p>
+<p>&copy; 2026 Beka Solomon. All rights reserved.</p>
+<p>Last updated: <time datetime="2026-11-05">5 November 2026</time></p>
 </footer>
 </map>
 </body>
