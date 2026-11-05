@@ -16,6 +16,17 @@ developer, HTML">
 <img src="image/Profie.png" alt="Portrait of Beka Solomon smiling"
 title="Beka Solomon" width="200" height="200">
 <p>Software Engineering student and aspiring web developer.</p>
+<button type="button"
+onclick="document.getElementById('hireDialog').showModal()">Hire me</button>
+<dialog id="hireDialog">
+<h2>Available for internships</h2>
+<p>I am available for internships and freelance web projects from June 2027.</p>
+<p><a href="#contact">Send me a message</a> or <a href="files/cv.pdf"
+download>download my CV</a>.</p>
+<button type="button"
+
+onclick="document.getElementById('hireDialog').close()">Close</button>
+</dialog>
 <nav>
 <a href="#about">About</a> |
 <a href="#skills">Skills</a> |
@@ -43,17 +54,24 @@ title="Beka Solomon" width="200" height="200">
 <ul>
 <li>Programming Languages
 <ul type="square">
-<li>Python</li>
-<li>C++</li>
-<li>Java</li>
-<li>TypeScript</li>
+<label for="lvl-python">Python</label>
+<meter id="lvl-python" value="0.8" min="0" max="1">88%</meter>
+<label for="lvl-cpp">C++</label>
+<meter id="lvl-cpp" value="0.7" min="0" max="1">70%</meter>
+<label for="lvl-java">Java</label>
+<meter id="lvl-java" value="0.6" min="0" max="1">60%</meter>
+<label for="lvl-typescript">TypeScript</label>
+<meter id="lvl-typescript" value="0.7" min="0" max="1">79%</meter>
 </ul>
 </li>
 <li>Web Development
 <ul type="circle">
-<li>HTML</li>
-<li>CSS (learning)</li>
-<li>JavaScript (next.js)</li>
+<label for="lvl-html">HTML</label>
+<meter id="lvl-html" value="0.65" min="0" max="1">650%</meter>
+<label for="lvl-css">CSS</label>
+<meter id="lvl-css" value="0.6" min="0" max="1">60%</meter>
+<label for="lvl-js">JavaScript</label>
+<meter id="lvl-js" value="0.1" min="0" max="1" low="0.3" high="0.75" optimum="1">10%</meter>
 </ul>
 </li>
 <li>Soft Skills
@@ -111,6 +129,10 @@ print("Hello", i)
 <hr>
 <section id="education">Education</h2>
 <h3>Currently studying Software Engineering at Addis Ababa Science and Technology University</h3>
+<p>
+<label for="degree">Degree progress:</label>
+<progress id="degree" value="40" max="100">40%</progress> 40%
+</p>
 <table border="1" cellpadding="18" cellspacing="5">
 <caption>Academic Record of courses taken upto 3<sup>rd</sup> year of Software Engineering</caption>
 <thead>
@@ -190,14 +212,46 @@ href="https://www.linkedin.com/in/Beka Solomon" alt="LinkedIn">
 href="mailto:lalike04@gmail.com" alt="Email">
 
 <h3>Send me a message</h3>
-<form action="Thankyou.html" method="get">
+<form action="Thankyou.html" method="get" enctype="multipart/form-data">
+
 <fieldset>
 <legend>Your Details</legend>
 <label for="fullname">Full name:</label>
-<input type="text" id="fullname" name="fullname">
+<input type="text" id="fullname" name="fullname" required>
 <br><br>
 <label for="email">Email:</label>
 <input type="email" id="email" name="email">
+</fieldset>
+<fieldset>
+<legend>Project Details</legend>
+<label for="phone">Phone (optional):</label>
+<input type="text" id="phone" name="phone"
+pattern="0[79][0-9]{8}" title="10 digits starting with 09 or 07">
+<br>
+<label for="number">Number:</label>
+<input type="text" id="number" name="number"
+min="1000" and step="500".>
+<br>
+<p>Preferred contact method:</p>
+<input type="radio" id="by-email" name="contact-method" value="email" checked>
+<label for="by-email">Email</label>
+<input type="radio" id="by-phone" name="contact-method" value="phone">
+<label for="by-phone">Phone</label>
+<br><br>
+<label for="meeting">Preferred meeting date:</label>
+<input type="date" id="meeting" name="meeting" min="2026-11-01">
+<br><br>
+<label for="weeks">Project length (weeks):</label>
+<input type="number" id="weeks" name="weeks" min="1" max="52" step="1">
+<br><br>
+<label for="brief">Attach a project brief:</label>
+<input type="file" id="brief" name="brief">
+<br><br>
+<label for="colour">Preferred website colour:</label>
+<input type="color" id="colour" name="colour" value="#1f5fa8">
+<br><br>
+<label for="rating">How much do you like my portfolio? (1–10)</label>
+<input type="range" id="rating" name="rating" min="1" max="10" value="7">
 </fieldset>
 <fieldset>
 <legend>Your Message</legend>
@@ -217,7 +271,12 @@ href="mailto:lalike04@gmail.com" alt="Email">
 <br><br>
 <label for="message">Message:</label><br>
 <textarea id="message" name="message" rows="6" cols="40"></textarea>
+<br>
+<input type="checkbox" id="copy" name="copy" value="yes">
+<label for="copy">Send me a copy of this message</label>
 </fieldset>
+
+
 <button type="submit">Send Message</button>
 <button type="reset">Clear</button>
 </form>
